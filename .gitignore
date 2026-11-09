@@ -1,0 +1,10 @@
+out/
+bin/
+*.class
+*.log
+scores.csv
+.DS_Store
+.idea/
+.settings/
+.project
+.classpath
