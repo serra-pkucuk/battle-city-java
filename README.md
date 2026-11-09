@@ -32,8 +32,10 @@ src/
 │   └── KeyHandler.java
 ├── gameobjects/
 │   └── ... (tanks, terrain, projectiles, and power-ups)
-└── gui/
-    └── ... (menus, options, map editor, and scores)
+├── gui/
+│   └── ... (menus, options, map editor, and scores)
+└── sounds/
+    └── ... (WAV sound effects)
 ```
 
 ## Controls
@@ -46,21 +48,21 @@ src/
 
 ## Build and run
 
-The project uses Java's standard desktop libraries. Once the required binary assets are included in their expected locations, compile from the repository root:
+The project uses Java's standard desktop libraries and was verified with JDK 17. Run the following commands from the repository root.
 
 ```bash
 mkdir -p out
-javac -d out $(find src -name '*.java')
+javac -encoding UTF-8 -d out $(find src -name '*.java')
 java -cp out:resources Main
 ```
 
-On Windows, use `;` instead of `:` as the classpath separator.
+On Windows, run the build commands in Git Bash and use `java -cp 'out;resources' Main` to launch the game.
 
-### Asset requirements
+### Assets
 
-**The Java sources have been uploaded, but the original binary resources are not yet included in this repository.** The game expects a sprite sheet at `/resim/sprites.png` on the Java classpath (for example `resources/resim/sprites.png`), and WAV files at `src/sounds/shoot.wav`, `src/sounds/explosion.wav`, and `src/sounds/powerup.wav` relative to the working directory.
-
-Without these files, the game cannot be demonstrated as intended. A verified working release requires the original assets and a runtime check. The provided Java source files were successfully compiled locally with `javac`, but graphical runtime behavior was not verified.
+- [Sprite sheet](resources/resim/sprites.png). The game loads `/resim/sprites.png` from the classpath, which includes the `resources` directory.
+- [Sound effects](src/sounds/). The game loads `src/sounds/shoot.wav`, `src/sounds/explosion.wav`, and `src/sounds/powerup.wav` relative to the working directory. Launch the game from the repository root so these paths resolve.
+- Reference images in `docs/`. [Stage 1](docs/stage1.png), [Stage 2](docs/stage2.png), [Stage 3](docs/stage3.png), and [additional artwork](docs/misc-original.png).
 
 ## Implementation notes
 
@@ -76,4 +78,4 @@ Without these files, the game cannot be demonstrated as intended. A verified wor
 
 ## Status
 
-Java source code uploaded. Original sprite and audio resources still need to be added. Java compilation was verified locally; a complete runtime test has not been performed.
+All Java sources compile with JDK 17. Headless verification covered sprite loading, off-screen rendering of all three built-in levels, and decoding of all three WAV files. Interactive gameplay and audible playback still require a desktop test.
