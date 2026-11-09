@@ -60,7 +60,7 @@ On Windows, use `;` instead of `:` as the classpath separator.
 
 **The Java sources have been uploaded, but the original binary resources are not yet included in this repository.** The game expects a sprite sheet at `/resim/sprites.png` on the Java classpath (for example `resources/resim/sprites.png`), and WAV files at `src/sounds/shoot.wav`, `src/sounds/explosion.wav`, and `src/sounds/powerup.wav` relative to the working directory.
 
-Without these files, the game cannot be demonstrated as intended. A verified working release requires the original assets and a build/runtime check.
+Without these files, the game cannot be demonstrated as intended. A verified working release requires the original assets and a runtime check. The provided Java source files were successfully compiled locally with \`javac\`, but graphical runtime behavior was not verified.
 
 ## Implementation notes
 
@@ -76,4 +76,4 @@ Without these files, the game cannot be demonstrated as intended. A verified wor
 
 ## Status
 
-Java source code uploaded. Original sprite and audio resources still need to be added, and the game has not been independently built or tested from the GitHub snapshot.
+Java source code uploaded. Original sprite and audio resources still need to be added. Java compilation was verified locally; a complete runtime test has not been performed.
